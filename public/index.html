@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数据监控面板</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container" style="display: flex;">
+        <nav class="sidebar" style="width: 200px;">
+            <button class="tab-button" onclick="openTab(event, 'Monitor')">监控</button>
+            <button class="tab-button" onclick="openTab(event, 'Bid')">竞价</button>
+            <button class="tab-button" onclick="openTab(event, 'Active')">近期活跃股</button>
+            <button class="tab-button" onclick="openTab(event, 'Limit')">连板股票</button>
+        </nav>
+
+        <div class="content" style="flex-grow: 1;">
+            <div id="Monitor" class="tab-content">
+                <div class="control-panel">
+                    <div class="url-input">
+                        <label for="api-url">地址：</label>
+                        <input type="text" id="api-url" value="http://localhost:8000/monitor/hq/increase/20">
+                    </div>
+                    <div class="buttons">
+                        <button id="start-btn">开始监控</button>
+                        <button id="stop-btn" disabled>停止监控</button>
+                    </div>
+                </div>
+                
+                <div class="data-container">
+                    <div class="refresh-info">
+                        <span>自动刷新: <span id="refresh-count">0</span> 次</span>
+                        <span>最后更新: <span id="last-update">--</span></span>
+                    </div>
+                    <div class="table-container">
+                        <table id="data-table">
+                            <thead>
+                                <tr id="table-header">
+                                    <!-- 表头将动态生成 -->
+                                </tr>
+                            </thead>
+                            <tbody id="table-body">
+                                <!-- 数据行将动态生成 -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <div id="Bid" class="tab-content" style="display:none">
+                <div class="control-panel">
+                    <div class="url-input">
+                        <label for="bid-num">监控数量：</label>
+                        <input type="text" id="bid-num" value="100" placeholder="输入数量">
+                    </div>
+                    <div class="buttons">
+                        <button id="bid-btn">监控竞价</button>
+                    </div>
+                </div>
+                <div class="data-container">
+                    <div class="refresh-info">
+                        <span>竞价总成交量: <span id="total-amount">--</span></span>
+                    </div>
+                    <div class="table-container">
+                        <table id="bid-table">
+                            <thead>
+                                <tr id="bid-table-header">
+                                    <!-- 表头将动态生成 -->
+                                </tr>
+                            </thead>
+                            <tbody id="bid-table-body">
+                                <!-- 数据行将动态生成 -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <div id="Active" class="tab-content" style="display:none">
+                <div class="control-panel">
+                    <div class="url-input">
+                        <label for="active-num">股票数量：</label>
+                        <input type="text" id="active-num" value="20" placeholder="输入数量">
+                    </div>
+                    <div class="buttons">
+                        <button id="active-btn">查询</button>
+                    </div>
+                </div>
+                <div class="data-container">
+                    <div class="table-container">
+                        <table id="active-table">
+                            <thead>
+                                <tr id="active-table-header">
+                                    <!-- 表头将动态生成 -->
+                                </tr>
+                            </thead>
+                            <tbody id="active-table-body">
+                                <!-- 数据行将动态生成 -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <div id="Limit" class="tab-content" style="display:none">
+                <div class="control-panel">
+                    <div class="url-input">
+                        <label for="limit-url">地址：</label>
+                        <input type="text" id="limit-url" value="http://localhost:8002/yesterday/limit">
+                    </div>
+                    <div class="buttons">
+                        <button id="start-btn-limit">开始监控</button>
+                        <button id="stop-btn-limit" disabled>停止监控</button>
+                    </div>
+                </div>
+                
+                <div class="data-container">
+                    <div class="refresh-info">
+                        <span>自动刷新: <span id="refresh-limit">0</span> 次</span>
+                        <span>最后更新: <span id="last-limit">--</span></span>
+                    </div>
+                    <div class="table-container">
+                        <table id="limit-table">
+                            <thead>
+                                <tr id="limit-table-header">
+                                    <!-- 表头将动态生成 -->
+                                </tr>
+                            </thead>
+                            <tbody id="limit-table-body">
+                                <!-- 数据行将动态生成 -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html> 

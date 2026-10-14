@@ -1,0 +1,47 @@
+{
+  "OrderInfo": {
+    "IsMoniter": true,
+    "IsFirstOrder": false,
+    "FirstLimitNum": 1,
+    "IsSecondOrder": false,
+    "IsFirst": true,
+    "OrderMoney": 11000,
+    "IsMoreAmount": true,
+    "MaxAmount": 2,
+    "MaxNmc": 100
+  },
+  "MoniterInfo": [
+    {
+      "Symbol": "sz300299",
+      "Name": "富春股份",
+      "WarnPercent": 15,
+      "IsOrder": true,
+      "Amount": 1228542846,
+      "Reason": "参股《长安的荔枝》出品方+游戏+AI宠物",
+      "Activity": "6",
+      "AnchorName": "",
+      "IsSealBack": false
+    },
+    {
+      "Symbol": "sz300006",
+      "Name": "莱美药业",
+      "WarnPercent": 15,
+      "IsOrder": true,
+      "Amount": 1284272767,
+      "Reason": "实控人拟变更+收到《药品补充申请批准通知书》+化学制药",
+      "Activity": "1",
+      "AnchorName": "",
+      "IsSealBack": false
+    }
+  ],
+  "FirstStkInfo": {
+    "Reason": "",
+    "FirIsNot": [
+      {
+        "Symbol": "sz301090",
+        "Name": "华润材料",
+        "IsOrder": false
+      }
+    ]
+  }
+}
